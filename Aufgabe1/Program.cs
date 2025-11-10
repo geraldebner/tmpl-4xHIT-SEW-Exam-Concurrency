@@ -10,7 +10,7 @@ namespace Project1_PrintRandomNumbers
             Thread threadA = new Thread(() => PrintRandomNumbers(10));
             Thread threadB = new Thread(() => PrintRandomNumbers(20));
 
-            threadB.Priority = ThreadPriority.Low;
+            threadB.Priority = ThreadPriority.Lowest;
 
             threadA.Start();
             threadB.Start();

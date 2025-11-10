@@ -6,4 +6,4 @@ Es besteht eine Main Methode und die Funktion *PrintRandomNumers*, welche die ge
   - Thread A soll 10 Random Numbers ausgeben.
   - Thread B soll 20 Random Numbers ausgeben.
 
-- Setzten Sie die Thread B Priorität auf "Low"
+- Setzten Sie die Thread B Priorität auf "Lowest"
