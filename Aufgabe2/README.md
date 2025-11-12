@@ -1,16 +1,12 @@
 # Aufgabe 2
 
-Es besteht eine Konsolenapplikation, welche die Anzahl aller `X` in eine große Textdatei ermittelt.
 
-Da dies sehr langsam ist, soll dies mit Mehreren Threads erfolgen.
+Es besteht eine leere `Main` Methode und die Methode `CreateRandomNumers`, welche 10 Random Numbers erzeugt.
 
-Die Methode `ProcessFilePart` ist schon vorbereitet, damit immer ein Teil der Zeilen eines Files durchsucht wird.
+Erweitern Sie diese Applikation folgendermassen:
 
-Jeder Thread soll maximal 100 Zeilen durchsuchen.
-Thread 1 startet bei Zeile 100, Thread 2 bei Zeile 200, Thread 3 bei Zeile 300, usw.
 
-Aufgabe:
-- erstellen Sie die Threads 
-- erstellen Sie eine Zählvariable 
-- Ausgabe des Zählstandes im Sekundentakt.
-- Identifizieren Sie, ob es zu einer Race-Condition kommen kann, und beheben Sie diese.
+- Erstellen Sie 100 Threads, die jeweils die  Methode `CreateRandomNumers` ausführen.
+- `CreateRandomNumers` soll die Erzeugten Zufallszahlen in einer Liste Speichern.
+    - **Die Zufallszahlen aller Threads sollen in einer Zentralen Liste Landen!**
+- 

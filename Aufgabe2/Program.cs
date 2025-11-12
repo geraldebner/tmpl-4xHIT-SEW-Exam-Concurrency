@@ -1,83 +1,34 @@
 ﻿using System;
-using System.IO;
 using System.Threading;
 
-namespace Project2_LineCounter
+namespace Project2_RandomNumbers
 {
     class Program
     {
-        static int totalXCount = 0;
-        static object lockObj = new object();
-
+        public static List<int> RandomNumberList = new List<int>();
         static void Main(string[] args)
         {
-            string filePath = "bigfile.txt";
+            // ADD your Code Here
 
-            if (!File.Exists(filePath))
+
+
+        /*
+            foreach( int rnum in RandomNumberList)
             {
-                Console.WriteLine("Datei nicht gefunden!");
-                return;
+                Console.WriteLine(rnum);
             }
 
-            int totalLines = File.ReadLines(filePath).Count();
-            int threadCount = totalLines / 100; // Jeder Thread liest max. 100 Zeilen
-
-
-
-            Thread[] threads = new Thread[threadCount];
-
-            for (int i = 0; i < threadCount; i++)
-            {
-                int startLine = (i + 1) * 100; // Thread 1 -> ab Zeile 100, Thread 2 -> ab 200, ...
-                threads[i] = new Thread(() => ProcessFilePart(filePath, startLine, 100));
-                threads[i].Start();
-            }
-
-            foreach (var t in threads)
-                t.Join();
-
-            Console.WriteLine($"Gesamtanzahl von 'x': {totalXCount}");
+            */
         }
 
-        static void ProcessFilePart(string filePath, int startIndex, int maxLines)
+        static void CreateRandomNumers()
         {
-            int localCount = 0;
-            int currentLine = 0;
-
-            using (StreamReader reader = new StreamReader(filePath))
+            Random rnd = new Random();
+            for (int i = 0; i < 10; i++)
             {
-                // Überspringe Zeilen bis zum StartIndex
-                while (currentLine < startIndex && !reader.EndOfStream)
-                {
-                    reader.ReadLine();
-                    currentLine++;
-                }
-
-                // Lese maxLines ab StartIndex
-                int linesRead = 0;
-                while (linesRead < maxLines && !reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                    localCount += CountX(line);
-                    linesRead++;
-                }
+                int rnum = rnd.Next(1, 100);
+                //RandomNumberList.Add();
             }
-
-            // Race Condition vermeiden
-            lock (lockObj)
-            {
-                totalXCount += localCount;
-            }
-        }
-
-        static int CountX(string line)
-        {
-            int count = 0;
-            foreach (char c in line)
-            {
-                if (c == 'x' || c == 'X') count++;
-            }
-            return count;
         }
     }
 }

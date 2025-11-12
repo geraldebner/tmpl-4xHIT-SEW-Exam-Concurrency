@@ -7,18 +7,13 @@ namespace Project1_PrintRandomNumbers
     {
         static void Main(string[] args)
         {
-            Thread threadA = new Thread(() => PrintRandomNumbers(10));
+            /* Lösung  
+            threadA = new Thread(() => PrintRandomNumbers(10));
             Thread threadB = new Thread(() => PrintRandomNumbers(20));
 
             threadB.Priority = ThreadPriority.Lowest;
 
-            threadA.Start();
-            threadB.Start();
-
-            threadA.Join();
-            threadB.Join();
-
-            Console.WriteLine("Alle Threads beendet.");
+            */
         }
 
         static void PrintRandomNumbers(int amountOfRandomNumbers)
